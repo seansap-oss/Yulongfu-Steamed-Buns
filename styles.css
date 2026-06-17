@@ -1,0 +1,287 @@
+/* =============================================
+   YULONGFU — Custom Styles
+   Modern Chinese Heritage Landing Page
+   ============================================= */
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Glassmorphism Header ---- */
+#site-header {
+  background: rgba(245, 242, 235, 0.7);
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  border-bottom: 1px solid rgba(176, 141, 87, 0.08);
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#site-header.scrolled {
+  background: rgba(245, 242, 235, 0.92);
+  box-shadow: 0 1px 20px rgba(18, 18, 18, 0.06);
+}
+
+#site-header.scrolled .header-inner {
+  height: 64px;
+}
+
+.header-inner {
+  transition: height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---- Nav Link Underline ---- */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #B08D57;
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ---- Active Nav Indicator ---- */
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ---- Mobile Menu ---- */
+#mobile-toggle.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+#mobile-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+#mobile-toggle.open span:nth-child(3) {
+  width: 24px;
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ---- Floating Animation ---- */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ---- Carousel ---- */
+.carousel-slide {
+  z-index: 0;
+}
+
+.carousel-slide.active {
+  z-index: 1;
+}
+
+.carousel-dot {
+  transition: all 0.3s ease;
+}
+
+.carousel-dot.active-dot {
+  background: #F5F2EB;
+  width: 24px;
+  border-radius: 9999px;
+}
+
+/* ---- Testimonial Slider ---- */
+.testimonial-slide {
+  display: none;
+}
+
+.testimonial-slide.active {
+  display: block;
+  animation: fadeInSlide 0.5s ease forwards;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.review-dot {
+  transition: all 0.3s ease;
+}
+
+.review-dot.active {
+  width: 20px;
+  border-radius: 9999px;
+  background: #121212;
+}
+
+/* ---- Menu Card Hover Effects ---- */
+.menu-card {
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(18, 18, 18, 0.3);
+}
+
+.menu-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(176, 141, 87, 0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.menu-card:hover::before {
+  opacity: 1;
+}
+
+/* ---- Section Reveal Animation ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Decorative Frame Lines ---- */
+#hero::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(176, 141, 87, 0.1), transparent);
+  pointer-events: none;
+}
+
+/* ---- Bronze Accent Gradient ---- */
+.bronze-gradient {
+  background: linear-gradient(135deg, #B08D57, #D4B896, #B08D57);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---- Smooth Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(176, 141, 87, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(176, 141, 87, 0.5);
+}
+
+/* ---- Selection ---- */
+::selection {
+  background: rgba(176, 141, 87, 0.2);
+  color: #121212;
+}
+
+/* ---- Focus Styles ---- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #B08D57;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---- Responsive Adjustments ---- */
+@media (max-width: 768px) {
+  #hero {
+    min-height: auto;
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
+
+  .animate-float {
+    display: none;
+  }
+}
+
+/* ---- Page Load Animation ---- */
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  animation: pageLoad 0.6s ease-out;
+}
+
+/* ---- Vermilion Accent Button ---- */
+.btn-vermilion {
+  background: #C23B22;
+  color: #F5F2EB;
+  transition: all 0.3s ease;
+}
+
+.btn-vermilion:hover {
+  background: #a83219;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(194, 59, 34, 0.3);
+}
+
+/* ---- Star Rating Pulse ---- */
+@keyframes starPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.star-pulse {
+  animation: starPulse 2s ease-in-out infinite;
+}

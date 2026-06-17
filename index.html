@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yulongfu — Artisan Xiaolongbao Since 1904</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={theme:{extend:{colors:{ink:'#121212',sand:'#F5F2EB',vermilion:'#C23B22',bronze:'#B08D57','bronze-light':'#D4B896','sand-dark':'#E8E2D6','ink-light':'#1E1E1E'},fontFamily:{serif:['Cormorant Garamond','Georgia','serif'],sans:['Inter','system-ui','sans-serif']}}}}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-sand text-ink font-sans antialiased overflow-x-hidden">
+  <!-- HEADER -->
+  <header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
+    <div class="header-inner mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between h-20">
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full border-2 border-bronze flex items-center justify-center font-serif text-lg font-semibold text-ink transition-all duration-300 group-hover:bg-ink group-hover:text-sand group-hover:border-ink">Y</div>
+        <div class="hidden sm:block">
+          <div class="font-serif text-lg font-semibold tracking-wide text-ink leading-none">YULONGFU</div>
+          <div class="text-[10px] tracking-[0.25em] text-bronze uppercase mt-0.5">Est. 1904</div>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-10">
+        <a href="#menu" class="nav-link text-sm tracking-wide text-ink/70 hover:text-ink transition-colors duration-300">Menu</a>
+        <a href="#story" class="nav-link text-sm tracking-wide text-ink/70 hover:text-ink transition-colors duration-300">Our Story</a>
+        <a href="#contact" class="nav-link text-sm tracking-wide text-ink/70 hover:text-ink transition-colors duration-300">Find Us</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-ink text-sand text-sm font-medium px-6 py-2.5 rounded-full hover:bg-ink-light transition-all duration-300 hover:shadow-lg hover:shadow-ink/20">Book a Table</a>
+        <button id="mobile-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+          <span class="block w-6 h-px bg-ink transition-all duration-300 origin-center" id="bar1"></span>
+          <span class="block w-6 h-px bg-ink transition-all duration-300" id="bar2"></span>
+          <span class="block w-4 h-px bg-ink transition-all duration-300 origin-center" id="bar3"></span>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-sand/95 backdrop-blur-xl border-b border-bronze/20">
+      <div class="px-6 py-8 flex flex-col gap-6">
+        <a href="#menu" class="mobile-nav-link font-serif text-2xl text-ink/80 hover:text-ink transition-colors">Menu</a>
+        <a href="#story" class="mobile-nav-link font-serif text-2xl text-ink/80 hover:text-ink transition-colors">Our Story</a>
+        <a href="#contact" class="mobile-nav-link font-serif text-2xl text-ink/80 hover:text-ink transition-colors">Find Us</a>
+        <div class="pt-4 border-t border-bronze/20">
+          <a href="#contact" class="inline-flex items-center gap-2 bg-ink text-sand text-sm font-medium px-6 py-3 rounded-full">Book a Table</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="relative min-h-screen flex items-center pt-20">
+      <div class="absolute inset-6 lg:inset-10 border border-bronze/20 pointer-events-none"></div>
+      <div class="absolute top-6 left-6 lg:top-10 lg:left-10 w-16 h-16 border-t-2 border-l-2 border-bronze/40 pointer-events-none"></div>
+      <div class="absolute bottom-6 right-6 lg:bottom-10 lg:right-10 w-16 h-16 border-b-2 border-r-2 border-bronze/40 pointer-events-none"></div>
+      <div class="mx-auto max-w-7xl px-6 lg:px-10 w-full py-16 lg:py-0">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div class="order-2 lg:order-1">
+            <div class="inline-flex items-center gap-2 border border-bronze/30 rounded-full px-4 py-1.5 mb-8">
+              <span class="w-2 h-2 rounded-full bg-vermilion animate-pulse"></span>
+              <span class="text-xs tracking-[0.15em] uppercase text-ink/60 font-medium">Hidden Gem of Melbourne</span>
+            </div>
+            <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-semibold leading-[1.05] tracking-tight mb-8">
+              Artisan<br/><span class="italic text-bronze">Xiaolongbao</span><br/>Handcrafted<br/>Since 1904
+            </h1>
+            <p class="text-ink/60 text-lg leading-relaxed max-w-md mb-10">Over a century of mastery folded into every delicate pleat. Experience the soul of Shanghai in the heart of Melbourne.</p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#menu" class="group inline-flex items-center gap-3 bg-ink text-sand px-8 py-4 rounded-full text-sm font-medium hover:bg-ink-light transition-all duration-300 hover:shadow-xl hover:shadow-ink/20">
+                Explore Our Menu
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </a>
+              <a href="#story" class="inline-flex items-center gap-2 border border-ink/20 text-ink px-8 py-4 rounded-full text-sm font-medium hover:border-ink/40 transition-all duration-300">Our Heritage</a>
+            </div>
+            <div class="flex gap-10 mt-14 pt-10 border-t border-ink/10">
+              <div><div class="font-serif text-3xl font-semibold">120+</div><div class="text-xs tracking-wide text-ink/50 mt-1">Years of Craft</div></div>
+              <div><div class="font-serif text-3xl font-semibold">16</div><div class="text-xs tracking-wide text-ink/50 mt-1">Pleat Fold</div></div>
+              <div><div class="font-serif text-3xl font-semibold">4.9</div><div class="text-xs tracking-wide text-ink/50 mt-1">Google Rating</div></div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2 relative">
+            <div class="relative aspect-[4/5] rounded-2xl overflow-hidden border border-bronze/20 shadow-2xl shadow-ink/10">
+              <div id="hero-carousel" class="relative w-full h-full">
+                <div class="carousel-slide active absolute inset-0 transition-opacity duration-700">
+                  <div class="w-full h-full bg-gradient-to-br from-ink via-ink-light to-ink flex items-center justify-center">
+                    <div class="text-center px-8"><div class="text-8xl mb-6">&#x1F95F;</div><div class="font-serif text-2xl text-sand/90 italic">Steaming Bamboo Baskets</div><div class="text-sand/40 text-sm mt-2 tracking-wide">Fresh from the steamer</div></div>
+                  </div>
+                </div>
+                <div class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-0">
+                  <div class="w-full h-full bg-gradient-to-br from-ink-light via-ink to-[#1a1510] flex items-center justify-center">
+                    <div class="text-center px-8"><div class="text-8xl mb-6">&#x1F932;</div><div class="font-serif text-2xl text-sand/90 italic">The Art of Folding</div><div class="text-sand/40 text-sm mt-2 tracking-wide">16 precise pleats per dumpling</div></div>
+                  </div>
+                </div>
+                <div class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-0">
+                  <div class="w-full h-full bg-gradient-to-br from-[#1a1510] via-ink to-ink-light flex items-center justify-center">
+                    <div class="text-center px-8"><div class="text-8xl mb-6">&#x1F5A4;</div><div class="font-serif text-2xl text-sand/90 italic">Black Truffle Dumplings</div><div class="text-sand/40 text-sm mt-2 tracking-wide">Our iconic signature dish</div></div>
+                  </div>
+                </div>
+                <div class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-0">
+                  <div class="w-full h-full bg-gradient-to-br from-ink to-[#1c1410] flex items-center justify-center">
+                    <div class="text-center px-8"><div class="text-8xl mb-6">&#x1F525;</div><div class="font-serif text-2xl text-sand/90 italic">Pan-Fried to Perfection</div><div class="text-sand/40 text-sm mt-2 tracking-wide">Golden crispy bottoms</div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2.5">
+                <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-sand/30 transition-all duration-300 active-dot" data-index="0"></button>
+                <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-sand/30 transition-all duration-300" data-index="1"></button>
+                <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-sand/30 transition-all duration-300" data-index="2"></button>
+                <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-sand/30 transition-all duration-300" data-index="3"></button>
+              </div>
+            </div>
+            <div class="absolute -bottom-6 -left-6 bg-sand border border-bronze/30 rounded-xl px-6 py-4 shadow-xl hidden lg:block animate-float">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-vermilion/10 flex items-center justify-center"><svg class="w-5 h-5 text-vermilion" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                <div><div class="text-sm font-semibold">Rated #1 Dumplings</div><div class="text-xs text-ink/50">in Melbourne CBD</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section id="story" class="relative py-24 lg:py-36">
+      <div class="absolute top-0 inset-x-0 flex justify-center"><div class="flex items-center gap-4"><div class="w-16 h-px bg-bronze/40"></div><div class="font-serif text-bronze text-sm tracking-[0.3em] uppercase">Heritage</div><div class="w-16 h-px bg-bronze/40"></div></div></div>
+      <div class="mx-auto max-w-7xl px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div class="relative">
+            <div class="aspect-[3/4] rounded-2xl overflow-hidden border border-bronze/20">
+              <div class="w-full h-full bg-gradient-to-br from-sand-dark via-sand to-sand-dark flex items-center justify-center">
+                <div class="text-center"><div class="text-9xl mb-4">&#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F466;</div><div class="font-serif text-xl text-ink/40 italic">The Liu Family</div></div>
+              </div>
+            </div>
+            <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-bronze/30 rounded-tl-2xl pointer-events-none"></div>
+            <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-bronze/30 rounded-br-2xl pointer-events-none"></div>
+            <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-ink text-sand rounded-full px-6 py-3 font-serif text-lg font-semibold shadow-xl">Since 1904</div>
+          </div>
+          <div class="lg:pt-10">
+            <div class="inline-flex items-center gap-2 border border-bronze/30 rounded-full px-4 py-1.5 mb-6"><span class="text-xs tracking-[0.15em] uppercase text-ink/60 font-medium">Our Story</span></div>
+            <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] tracking-tight mb-8">Four Generations<br/>of <span class="italic text-bronze">Mastery</span></h2>
+            <div class="space-y-6 text-ink/65 leading-relaxed">
+              <p>In 1904, in a modest kitchen on the bustling streets of Shanghai, the first Yulongfu dumpling was folded &mdash; a single xiaolongbao bearing 16 precise pleats, each one a promise of perfection.</p>
+              <p>Today, that promise lives on in Melbourne through <strong class="text-ink font-medium">Yong and Emily Liu</strong>, a husband-and-wife duo who left corporate careers to preserve what their family had meticulously guarded for over a century.</p>
+              <p>Every recipe is drawn from the original 1904 family archives. Every dumpling is hand-folded to the exacting standards of the <strong class="text-ink font-medium">16-pleat fold</strong> &mdash; a technique so precise it takes years to master.</p>
+              <p>From the iconic <strong class="text-ink font-medium">black truffle xiaolongbao</strong> wrapped in its signature ink-black dough, to the slow-braised pork belly that simmers for hours, each dish is a chapter in a story that began over 120 years ago.</p>
+            </div>
+            <div class="mt-10 flex items-center gap-6">
+              <div class="flex -space-x-3">
+                <div class="w-10 h-10 rounded-full bg-bronze/20 border-2 border-sand flex items-center justify-center font-serif text-sm text-ink/60">Y</div>
+                <div class="w-10 h-10 rounded-full bg-vermilion/10 border-2 border-sand flex items-center justify-center font-serif text-sm text-ink/60">E</div>
+              </div>
+              <div><div class="text-sm font-medium text-ink">Yong &amp; Emily Liu</div><div class="text-xs text-ink/50">4th Generation Custodians</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGNATURE MENU -->
+    <section id="menu" class="relative py-24 lg:py-36 bg-ink">
+      <div class="absolute top-0 inset-x-0 flex justify-center"><div class="flex items-center gap-4"><div class="w-16 h-px bg-bronze/30"></div><div class="font-serif text-bronze text-sm tracking-[0.3em] uppercase">Signature Dishes</div><div class="w-16 h-px bg-bronze/30"></div></div></div>
+      <div class="mx-auto max-w-7xl px-6 lg:px-10">
+        <div class="text-center mb-16 lg:mb-20">
+          <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-sand leading-tight tracking-tight">The Art of<br/><span class="italic text-bronze-light">Xiaolongbao</span></h2>
+          <p class="mt-6 text-sand/50 text-lg max-w-xl mx-auto">Each dish is a testament to over a century of culinary heritage, handcrafted with precision and passion.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div class="menu-card group relative bg-ink-light border border-white/5 rounded-2xl overflow-hidden hover:border-bronze/30 transition-all duration-500">
+            <div class="aspect-[4/3] bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] flex items-center justify-center relative overflow-hidden"><div class="text-7xl transition-transform duration-500 group-hover:scale-110">&#x1F95F;</div><div class="absolute top-4 right-4 bg-vermilion text-sand text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full">Signature</div></div>
+            <div class="p-6"><h3 class="font-serif text-xl font-semibold text-sand mb-2">Signature Pork Xiaolongbao</h3><p class="text-sand/40 text-sm leading-relaxed mb-4">8 pieces of handcrafted soup dumplings with premium pork filling and rich collagen broth.</p><div class="flex items-center justify-between"><span class="font-serif text-2xl font-semibold text-bronze-light">$17.80</span><span class="text-sand/30 text-xs tracking-wide">8 PCS</span></div></div>
+          </div>
+          <div class="menu-card group relative bg-ink-light border border-white/5 rounded-2xl overflow-hidden hover:border-bronze/30 transition-all duration-500">
+            <div class="aspect-[4/3] bg-gradient-to-br from-[#0d0d0d] to-[#1a1510] flex items-center justify-center relative overflow-hidden"><div class="text-7xl transition-transform duration-500 group-hover:scale-110">&#x1F5A4;</div><div class="absolute top-4 right-4 bg-ink border border-bronze/40 text-bronze-light text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full">Iconic</div></div>
+            <div class="p-6"><h3 class="font-serif text-xl font-semibold text-sand mb-2">Black Truffle &amp; Pork Xiaolongbao</h3><p class="text-sand/40 text-sm leading-relaxed mb-4">Our iconic black ink dough wrapping premium pork and shaved black truffle. A Melbourne legend.</p><div class="flex items-center justify-between"><span class="font-serif text-2xl font-semibold text-bronze-light">$22.80</span><span class="text-sand/30 text-xs tracking-wide">8 PCS</span></div></div>
+          </div>
+          <div class="menu-card group relative bg-ink-light border border-white/5 rounded-2xl overflow-hidden hover:border-bronze/30 transition-all duration-500">
+            <div class="aspect-[4/3] bg-gradient-to-br from-[#1a1510] to-[#12100d] flex items-center justify-center relative overflow-hidden"><div class="text-7xl transition-transform duration-500 group-hover:scale-110">&#x1F373;</div><div class="absolute top-4 right-4 bg-white/10 text-sand text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full">Popular</div></div>
+            <div class="p-6"><h3 class="font-serif text-xl font-semibold text-sand mb-2">Pan-Fried Pork, Cabbage &amp; Chives</h3><p class="text-sand/40 text-sm leading-relaxed mb-4">10 golden-bottomed dumplings with a crispy lattice skirt. Pork, cabbage, and fresh chives.</p><div class="flex items-center justify-between"><span class="font-serif text-2xl font-semibold text-bronze-light">$16.80</span><span class="text-sand/30 text-xs tracking-wide">10 PCS</span></div></div>
+          </div>
+          <div class="menu-card group relative bg-ink-light border border-white/5 rounded-2xl overflow-hidden hover:border-bronze/30 transition-all duration-500">
+            <div class="aspect-[4/3] bg-gradient-to-br from-[#1c1410] to-[#12100d] flex items-center justify-center relative overflow-hidden"><div class="text-7xl transition-transform duration-500 group-hover:scale-110">&#x1F372;</div><div class="absolute top-4 right-4 bg-bronze/20 text-bronze-light text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full">Chef's Pick</div></div>
+            <div class="p-6"><h3 class="font-serif text-xl font-semibold text-sand mb-2">Slow-Braised Pork Belly Clay Pot</h3><p class="text-sand/40 text-sm leading-relaxed mb-4">Heritage pork belly slow-braised for 6 hours in our secret 1904 master stock. Served bubbling.</p><div class="flex items-center justify-between"><span class="font-serif text-2xl font-semibold text-bronze-light">$35.70</span><span class="text-sand/30 text-xs tracking-wide">CLAY POT</span></div></div>
+          </div>
+        </div>
+        <div class="text-center mt-14">
+          <a href="#contact" class="group inline-flex items-center gap-3 border border-sand/20 text-sand px-8 py-4 rounded-full text-sm font-medium hover:border-sand/40 hover:bg-sand/5 transition-all duration-300">
+            View Full Menu
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="relative py-24 lg:py-36">
+      <div class="absolute top-0 inset-x-0 flex justify-center"><div class="flex items-center gap-4"><div class="w-16 h-px bg-bronze/40"></div><div class="font-serif text-bronze text-sm tracking-[0.3em] uppercase">Testimonials</div><div class="w-16 h-px bg-bronze/40"></div></div></div>
+      <div class="mx-auto max-w-7xl px-6 lg:px-10">
+        <div class="text-center mb-16"><h2 class="font-serif text-4xl sm:text-5xl font-semibold leading-tight tracking-tight">What Our Guests<br/><span class="italic text-bronze">Are Saying</span></h2></div>
+        <div class="relative max-w-4xl mx-auto">
+          <div id="testimonial-track" class="overflow-hidden">
+            <div class="testimonial-slide active">
+              <div class="bg-sand border border-bronze/15 rounded-2xl p-8 lg:p-12 text-center">
+                <div class="flex justify-center gap-1 mb-6"><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                <blockquote class="font-serif text-2xl lg:text-3xl text-ink/80 italic leading-relaxed mb-8">&ldquo;The best dumplings I&rsquo;ve ever had. The black truffle xiaolongbao is absolutely transcendent. A true hidden gem!&rdquo;</blockquote>
+                <div class="flex items-center justify-center gap-3"><div class="w-10 h-10 rounded-full bg-bronze/20 flex items-center justify-center font-serif text-sm text-ink/60">S</div><div class="text-left"><div class="text-sm font-medium text-ink">Sarah M.</div><div class="text-xs text-ink/40">Google Review &middot; 5 Stars</div></div></div>
+              </div>
+            </div>
+            <div class="testimonial-slide">
+              <div class="bg-sand border border-bronze/15 rounded-2xl p-8 lg:p-12 text-center">
+                <div class="flex justify-center gap-1 mb-6"><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                <blockquote class="font-serif text-2xl lg:text-3xl text-ink/80 italic leading-relaxed mb-8">&ldquo;We stumbled upon Yulongfu on a rainy Tuesday and it changed our lives. The pan-fried dumplings with the crispy bottom &mdash; absolute perfection.&rdquo;</blockquote>
+                <div class="flex items-center justify-center gap-3"><div class="w-10 h-10 rounded-full bg-vermilion/10 flex items-center justify-center font-serif text-sm text-ink/60">J</div><div class="text-left"><div class="text-sm font-medium text-ink">James &amp; Lin W.</div><div class="text-xs text-ink/40">Facebook Review &middot; 5 Stars</div></div></div>
+              </div>
+            </div>
+            <div class="testimonial-slide">
+              <div class="bg-sand border border-bronze/15 rounded-2xl p-8 lg:p-12 text-center">
+                <div class="flex justify-center gap-1 mb-6"><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                <blockquote class="font-serif text-2xl lg:text-3xl text-ink/80 italic leading-relaxed mb-8">&ldquo;As a food critic, I&rsquo;ve eaten xiaolongbao across Asia. Yulongfu rivals the best in Shanghai. The 16-pleat fold is genuine artistry you can taste.&rdquo;</blockquote>
+                <div class="flex items-center justify-center gap-3"><div class="w-10 h-10 rounded-full bg-ink/10 flex items-center justify-center font-serif text-sm text-ink/60">R</div><div class="text-left"><div class="text-sm font-medium text-ink">Rachel T.</div><div class="text-xs text-ink/40">Google Review &middot; 5 Stars</div></div></div>
+              </div>
+            </div>
+            <div class="testimonial-slide">
+              <div class="bg-sand border border-bronze/15 rounded-2xl p-8 lg:p-12 text-center">
+                <div class="flex justify-center gap-1 mb-6"><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                <blockquote class="font-serif text-2xl lg:text-3xl text-ink/80 italic leading-relaxed mb-8">&ldquo;The slow-braised pork belly clay pot is worth the visit alone. You can taste the 120 years of history in every bite.&rdquo;</blockquote>
+                <div class="flex items-center justify-center gap-3"><div class="w-10 h-10 rounded-full bg-bronze/15 flex items-center justify-center font-serif text-sm text-ink/60">D</div><div class="text-left"><div class="text-sm font-medium text-ink">David K.</div><div class="text-xs text-ink/40">Google Review &middot; 5 Stars</div></div></div>
+              </div>
+            </div>
+            <div class="testimonial-slide">
+              <div class="bg-sand border border-bronze/15 rounded-2xl p-8 lg:p-12 text-center">
+                <div class="flex justify-center gap-1 mb-6"><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-5 h-5 text-bronze" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                <blockquote class="font-serif text-2xl lg:text-3xl text-ink/80 italic leading-relaxed mb-8">&ldquo;Brought my Shanghai-born mother here. She said it reminded her of her grandmother&rsquo;s kitchen. We&rsquo;re regulars now.&rdquo;</blockquote>
+                <div class="flex items-center justify-center gap-3"><div class="w-10 h-10 rounded-full bg-vermilion/8 flex items-center justify-center font-serif text-sm text-ink/60">A</div><div class="text-left"><div class="text-sm font-medium text-ink">Amy C.</div><div class="text-xs text-ink/40">Facebook Review &middot; 5 Stars</div></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center gap-3 mt-8">
+            <button id="prev-review" class="w-10 h-10 rounded-full border border-ink/15 flex items-center justify-center hover:border-ink/30 transition-colors" aria-label="Previous review"><svg class="w-4 h-4 text-ink/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"/></svg></button>
+            <div id="review-dots" class="flex items-center gap-2">
+              <button class="review-dot w-2 h-2 rounded-full bg-ink transition-all duration-300" data-index="0"></button>
+              <button class="review-dot w-2 h-2 rounded-full bg-ink/20 transition-all duration-300" data-index="1"></button>
+              <button class="review-dot w-2 h-2 rounded-full bg-ink/20 transition-all duration-300" data-index="2"></button>
+              <button class="review-dot w-2 h-2 rounded-full bg-ink/20 transition-all duration-300" data-index="3"></button>
+              <button class="review-dot w-2 h-2 rounded-full bg-ink/20 transition-all duration-300" data-index="4"></button>
+            </div>
+            <button id="next-review" class="w-10 h-10 rounded-full border border-ink/15 flex items-center justify-center hover:border-ink/30 transition-colors" aria-label="Next review"><svg class="w-4 h-4 text-ink/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+        <div class="mt-20 text-center">
+          <div class="inline-block border border-bronze/20 rounded-2xl p-10 lg:p-14 max-w-2xl mx-auto">
+            <div class="text-4xl mb-4">&#x1F95F;</div>
+            <h3 class="font-serif text-2xl lg:text-3xl font-semibold mb-3">Join Our Community</h3>
+            <p class="text-ink/50 mb-8 max-w-md mx-auto">Follow us for behind-the-scenes stories, seasonal specials, and the occasional dumpling-making masterclass.</p>
+            <a href="https://www.facebook.com/yulongfubuns/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-3 bg-[#1877F2] text-white px-8 py-4 rounded-full text-sm font-medium hover:bg-[#166FE5] transition-all duration-300 hover:shadow-lg hover:shadow-[#1877F2]/30">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Follow on Facebook
+              <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & FOOTER -->
+    <section id="contact" class="relative py-24 lg:py-36 bg-ink">
+      <div class="absolute top-0 inset-x-0 flex justify-center"><div class="flex items-center gap-4"><div class="w-16 h-px bg-bronze/30"></div><div class="font-serif text-bronze text-sm tracking-[0.3em] uppercase">Visit Us</div><div class="w-16 h-px bg-bronze/30"></div></div></div>
+      <div class="mx-auto max-w-7xl px-6 lg:px-10">
+        <div class="text-center mb-16"><h2 class="font-serif text-4xl sm:text-5xl font-semibold text-sand leading-tight tracking-tight">Find <span class="italic text-bronze-light">Us</span></h2></div>
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div class="space-y-10">
+            <div>
+              <h3 class="font-serif text-xl text-sand mb-4 flex items-center gap-3"><svg class="w-5 h-5 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Opening Hours</h3>
+              <div class="border border-white/10 rounded-xl overflow-hidden">
+                <div class="flex justify-between px-6 py-4 border-b border-white/5"><span class="text-sand/70">Monday &mdash; Sunday</span><span class="text-sand font-medium">11:30 AM &mdash; 10:00 PM</span></div>
+                <div class="flex justify-between px-6 py-4 bg-white/5"><span class="text-sand/70">Public Holidays</span><span class="text-sand font-medium">12:00 PM &mdash; 10:00 PM</span></div>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-serif text-xl text-sand mb-4 flex items-center gap-3"><svg class="w-5 h-5 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Address</h3>
+              <a href="https://maps.google.com/?q=136+Bourke+St+Melbourne+VIC+3000" target="_blank" rel="noopener noreferrer" class="group block border border-white/10 rounded-xl p-6 hover:border-bronze/30 transition-all duration-300">
+                <div class="text-sand font-medium group-hover:text-bronze-light transition-colors">136 Bourke St</div>
+                <div class="text-sand/50 text-sm mt-1">Melbourne VIC 3000</div>
+                <div class="text-bronze/60 text-xs mt-3 flex items-center gap-1">Open in Google Maps<svg class="w-3 h-3 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></div>
+              </a>
+            </div>
+            <div>
+              <h3 class="font-serif text-xl text-sand mb-4 flex items-center gap-3"><svg class="w-5 h-5 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>Contact</h3>
+              <div class="space-y-3">
+                <a href="tel:+61390001234" class="flex items-center gap-3 text-sand/70 hover:text-sand transition-colors"><svg class="w-4 h-4 text-bronze/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>(03) 9000 1234</a>
+                <a href="mailto:hello@yulongfu.com.au" class="flex items-center gap-3 text-sand/70 hover:text-sand transition-colors"><svg class="w-4 h-4 text-bronze/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>hello@yulongfu.com.au</a>
+                <a href="https://www.facebook.com/yulongfubuns/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sand/70 hover:text-sand transition-colors"><svg class="w-4 h-4 text-bronze/60" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Yulongfu Steamed Buns</a>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-2xl overflow-hidden border border-white/10 aspect-square lg:aspect-auto lg:min-h-[500px] bg-ink-light flex items-center justify-center">
+            <div class="text-center">
+              <svg class="w-12 h-12 text-bronze/40 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <div class="text-sand/30 text-sm">Interactive Map</div>
+              <div class="text-sand/20 text-xs mt-1">136 Bourke St, Melbourne</div>
+              <a href="https://maps.google.com/?q=136+Bourke+St+Melbourne+VIC+3000" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-bronze/60 text-xs mt-4 hover:text-bronze transition-colors">
+                Open in Google Maps
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-ink border-t border-white/5 py-10">
+    <div class="mx-auto max-w-7xl px-6 lg:px-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full border border-bronze/40 flex items-center justify-center font-serif text-sm text-bronze">Y</div>
+          <span class="font-serif text-sm text-sand/50">Yulongfu Steamed Buns &middot; Est. 1904</span>
+        </div>
+        <div class="flex items-center gap-8">
+          <a href="#menu" class="text-xs text-sand/40 hover:text-sand/70 transition-colors">Menu</a>
+          <a href="#story" class="text-xs text-sand/40 hover:text-sand/70 transition-colors">Story</a>
+          <a href="#contact" class="text-xs text-sand/40 hover:text-sand/70 transition-colors">Contact</a>
+          <a href="https://www.facebook.com/yulongfubuns/" target="_blank" rel="noopener noreferrer" class="text-sand/40 hover:text-sand/70 transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+        <div class="text-[10px] text-sand/25 tracking-wide">&copy; 2026 Yulongfu. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
