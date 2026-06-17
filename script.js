@@ -6,7 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // ─── Header Scroll Effect ─────────────────────
-  const header = document.getElementById('site-header');
+  const header = document.getElementById('header');
   let lastScroll = 0;
 
   window.addEventListener('scroll', () => {
@@ -20,47 +20,48 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
 
   // ─── Mobile Menu Toggle ──────────────────────
-  const mobileToggle = document.getElementById('mobile-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-  mobileToggle.addEventListener('click', () => {
-    mobileToggle.classList.toggle('open');
-    if (mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== '0px') {
-      mobileMenu.style.maxHeight = '0px';
-    } else {
-      mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
-    }
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileNav.classList.toggle('-translate-x-full');
+    mobileMenuBtn.classList.toggle('open');
   });
 
-  // Close mobile menu on link click
-  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+  mobileNavLinks.forEach(link => {
     link.addEventListener('click', () => {
-      mobileToggle.classList.remove('open');
-      mobileMenu.style.maxHeight = '0px';
+      mobileNav.classList.add('-translate-x-full');
+      mobileMenuBtn.classList.remove('open');
     });
   });
 
   // ─── Hero Carousel ───────────────────────────
-  const heroSlides = document.querySelectorAll('#hero-carousel .carousel-slide');
-  const heroDots = document.querySelectorAll('.carousel-dot');
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  const heroDots = document.querySelectorAll('.hero-dot');
   let currentHeroSlide = 0;
   let heroInterval;
 
   function showHeroSlide(index) {
     heroSlides.forEach((slide, i) => {
       slide.classList.remove('active');
-      slide.style.opacity = '0';
-      heroDots[i].classList.remove('active-dot');
+      heroDots[i].classList.remove('bg-sand', 'opacity-100');
+      heroDots[i].classList.add('bg-sand/30');
     });
     heroSlides[index].classList.add('active');
-    heroSlides[index].style.opacity = '1';
-    heroDots[index].classList.add('active-dot');
+    heroDots[index].classList.add('bg-sand');
+    heroDots[index].classList.remove('bg-sand/30');
     currentHeroSlide = index;
   }
 
   function nextHeroSlide() {
     const next = (currentHeroSlide + 1) % heroSlides.length;
     showHeroSlide(next);
+  }
+
+  function prevHeroSlide() {
+    const prev = (currentHeroSlide - 1 + heroSlides.length) % heroSlides.length;
+    showHeroSlide(prev);
   }
 
   function startHeroCarousel() {
@@ -71,74 +72,83 @@ document.addEventListener('DOMContentLoaded', () => {
     clearInterval(heroInterval);
   }
 
-  // Dot click navigation
   heroDots.forEach(dot => {
     dot.addEventListener('click', () => {
       stopHeroCarousel();
-      showHeroSlide(parseInt(dot.dataset.index));
+      showHeroSlide(parseInt(dot.dataset.dot));
       startHeroCarousel();
     });
   });
 
+  showHeroSlide(0);
   startHeroCarousel();
 
   // ─── Testimonial Slider ──────────────────────
-  const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-  const reviewDots = document.querySelectorAll('.review-dot');
-  const prevReviewBtn = document.getElementById('prev-review');
-  const nextReviewBtn = document.getElementById('next-review');
-  let currentReview = 0;
-  let reviewInterval;
+  const testimonialTrack = document.getElementById('testimonialTrack');
+  const testimonialSlides = testimonialTrack ? testimonialTrack.children : [];
+  const testimonialDots = document.querySelectorAll('.testimonial-dot');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  let currentTestimonial = 0;
+  let testimonialInterval;
 
-  function showReview(index) {
-    testimonialSlides.forEach((slide, i) => {
-      slide.classList.remove('active');
-      reviewDots[i].classList.remove('active');
+  function showTestimonial(index) {
+    if (!testimonialTrack) return;
+    testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+    testimonialDots.forEach((dot, i) => {
+      if (i === index) {
+        dot.classList.add('bg-vermilion');
+        dot.classList.remove('bg-ink/20');
+      } else {
+        dot.classList.remove('bg-vermilion');
+        dot.classList.add('bg-ink/20');
+      }
     });
-    testimonialSlides[index].classList.add('active');
-    reviewDots[index].classList.add('active');
-    currentReview = index;
+    currentTestimonial = index;
   }
 
-  function nextReview() {
-    const next = (currentReview + 1) % testimonialSlides.length;
-    showReview(next);
+  function nextTestimonial() {
+    const next = (currentTestimonial + 1) % testimonialSlides.length;
+    showTestimonial(next);
   }
 
-  function prevReview() {
-    const prev = (currentReview - 1 + testimonialSlides.length) % testimonialSlides.length;
-    showReview(prev);
+  function prevTestimonial() {
+    const prev = (currentTestimonial - 1 + testimonialSlides.length) % testimonialSlides.length;
+    showTestimonial(prev);
   }
 
-  function startReviewSlider() {
-    reviewInterval = setInterval(nextReview, 6000);
+  function startTestimonialSlider() {
+    testimonialInterval = setInterval(nextTestimonial, 6000);
   }
 
-  function stopReviewSlider() {
-    clearInterval(reviewInterval);
+  function stopTestimonialSlider() {
+    clearInterval(testimonialInterval);
   }
 
-  nextReviewBtn.addEventListener('click', () => {
-    stopReviewSlider();
-    nextReview();
-    startReviewSlider();
-  });
+  if (prevBtn && nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      stopTestimonialSlider();
+      nextTestimonial();
+      startTestimonialSlider();
+    });
 
-  prevReviewBtn.addEventListener('click', () => {
-    stopReviewSlider();
-    prevReview();
-    startReviewSlider();
-  });
+    prevBtn.addEventListener('click', () => {
+      stopTestimonialSlider();
+      prevTestimonial();
+      startTestimonialSlider();
+    });
+  }
 
-  reviewDots.forEach(dot => {
+  testimonialDots.forEach(dot => {
     dot.addEventListener('click', () => {
-      stopReviewSlider();
-      showReview(parseInt(dot.dataset.index));
-      startReviewSlider();
+      stopTestimonialSlider();
+      showTestimonial(parseInt(dot.dataset.dot));
+      startTestimonialSlider();
     });
   });
 
-  startReviewSlider();
+  showTestimonial(0);
+  startTestimonialSlider();
 
   // ─── Active Nav Link on Scroll ───────────────
   const sections = document.querySelectorAll('section[id]');
@@ -154,9 +164,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (scrollPos >= top && scrollPos < top + height) {
         navLinks.forEach(link => {
-          link.classList.remove('active');
+          link.classList.remove('text-vermilion');
           if (link.getAttribute('href') === '#' + id) {
-            link.classList.add('active');
+            link.classList.add('text-vermilion');
           }
         });
       }
@@ -166,12 +176,12 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateActiveNav, { passive: true });
 
   // ─── Reveal on Scroll ────────────────────────
-  const revealElements = document.querySelectorAll('.menu-card, .reveal');
+  const revealElements = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-top, .menu-card');
 
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        entry.target.classList.add('revealed');
         revealObserver.unobserve(entry.target);
       }
     });
@@ -180,25 +190,24 @@ document.addEventListener('DOMContentLoaded', () => {
     rootMargin: '0px 0px -50px 0px'
   });
 
-  revealElements.forEach(el => {
-    el.classList.add('reveal');
-    revealObserver.observe(el);
-  });
+  revealElements.forEach(el => revealObserver.observe(el));
 
   // ─── Stats Counter Animation ─────────────────
-  const statElements = document.querySelectorAll('.font-serif.text-3xl');
+  const statElements = document.querySelectorAll('.text-4xl.font-bold');
 
   const statObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const el = entry.target;
         const text = el.textContent;
-        const num = parseInt(text);
+        const match = text.match(/(\d+)/);
 
-        if (!isNaN(num)) {
+        if (match) {
+          const num = parseInt(match[1]);
           let current = 0;
           const increment = Math.ceil(num / 30);
-          const suffix = text.replace(num.toString(), '');
+          const prefix = text.substring(0, text.indexOf(match[1]));
+          const suffix = text.substring(text.indexOf(match[1]) + match[1].length);
 
           const timer = setInterval(() => {
             current += increment;
@@ -206,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
               current = num;
               clearInterval(timer);
             }
-            el.textContent = current + suffix;
+            el.textContent = prefix + current + suffix;
           }, 30);
         }
 
@@ -235,37 +244,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ─── Parallax Effect for Hero ────────────────
-  const hero = document.getElementById('hero');
-
-  window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    if (hero && scrolled < window.innerHeight) {
-      const floatingCard = hero.querySelector('.animate-float');
-      if (floatingCard) {
-        floatingCard.style.transform = `translateY(${scrolled * 0.1}px)`;
-      }
-    }
-  }, { passive: true });
-
   // ─── Keyboard Navigation for Sliders ─────────
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') {
-      stopReviewSlider();
-      prevReview();
-      startReviewSlider();
+      stopTestimonialSlider();
+      prevTestimonial();
+      startTestimonialSlider();
     } else if (e.key === 'ArrowRight') {
-      stopReviewSlider();
-      nextReview();
-      startReviewSlider();
+      stopTestimonialSlider();
+      nextTestimonial();
+      startTestimonialSlider();
     }
   });
 
   // ─── Touch Swipe for Testimonials ────────────
   let touchStartX = 0;
   let touchEndX = 0;
-
-  const testimonialTrack = document.getElementById('testimonial-track');
 
   if (testimonialTrack) {
     testimonialTrack.addEventListener('touchstart', (e) => {
@@ -277,15 +271,28 @@ document.addEventListener('DOMContentLoaded', () => {
       const diff = touchStartX - touchEndX;
 
       if (Math.abs(diff) > 50) {
-        stopReviewSlider();
+        stopTestimonialSlider();
         if (diff > 0) {
-          nextReview();
+          nextTestimonial();
         } else {
-          prevReview();
+          prevTestimonial();
         }
-        startReviewSlider();
+        startTestimonialSlider();
       }
     }, { passive: true });
   }
+
+  // ─── Parallax Effect for Hero ────────────────
+  const hero = document.getElementById('hero');
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    if (hero && scrolled < window.innerHeight) {
+      const floatingElements = hero.querySelectorAll('.hero-slide.active > div:first-child');
+      floatingElements.forEach(el => {
+        el.style.transform = `scale(1.05) translateY(${scrolled * 0.05}px)`;
+      });
+    }
+  }, { passive: true });
 
 });
