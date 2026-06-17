@@ -93,11 +93,14 @@ body {
   z-index: 1;
 }
 
-.hero-slide > div:first-child {
+.hero-bg {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   transition: transform 8s ease-out;
 }
 
-.hero-slide.active > div:first-child {
+.hero-slide.active .hero-bg {
   transform: scale(1.05);
 }
 
